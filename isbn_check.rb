@@ -50,6 +50,9 @@ def isbn_input(isbn)
 			end
 		end
 	end				
+	if isbn == false
+		isbn = "Invalid ISBN"
+	end	
 	isbn
 end
 def isbn10_check(isbn10)
@@ -72,7 +75,7 @@ def isbn10_check(isbn10)
 	sum10 = num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8 + num9 
 	mod10 = sum10 % 11
 		if mod10 == check_digit10
-			isbn10 = true
+			isbn10 = "Valid ISBN-10"
 		else 
 			isbn10 = false
 		end
@@ -100,7 +103,7 @@ def isbn13_check(isbn13)
 			mod13 = 0
 		end
 		if check_digit13 == mod13
-			isbn13 = true
+			isbn13 = "Valid ISBN-13"
 		else	
 			isbn13 = false
 		end
