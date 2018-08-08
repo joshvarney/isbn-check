@@ -98,9 +98,93 @@ class Isbn_check_test < Minitest::Test
 	# 	isbn13 = "1234567890123"
 	# 	assert_equal(3, isbn13_check(isbn13))
 	# end
-	def test_that_sum13_works_correctly
-		isbn13 = "1234567890123"
-		assert_equal(104 , isbn13_check(isbn13))
+	# def test_that_sum13_works_correctly
+	# 	isbn13 = "1234567890123"
+	# 	assert_equal(104, isbn13_check(isbn13))
+	# end
+	# def test_that_modulo_returns
+	# 	isbn13 = "1234567890123"
+	# 	assert_equal(4, isbn13_check(isbn13))
+	# end
+	# def test_that_subtracting_the_modulo_returns_correctly
+	# 	isbn13 = "1234567890128"
+	# 	assert_equal(8, isbn13_check(isbn13))
+	# end
+	# def test_that_subtracting_the_modulo_returns_correctly1
+	# 	isbn13 = "9780470059029"
+	# 	assert_equal(9, isbn13_check(isbn13))
+	# end
+	# def test_that_isbn_can_down_case_number
+	# 	isbn = "1234567890"
+	# 	assert_equal("1234567890", isbn_input(isbn))
+	# end
+	# def test_that_returns_false_if_only_spaces_entered
+	# 	isbn = "    "
+	# 	assert_equal(false, isbn_input(isbn))
+	# end
+	# def test_that_returns_false_if_nothing_entered
+	# 	isbn = ""
+	# 	assert_equal(false, isbn_input(isbn))
+	# end
+	def test_that_returns_true_if_isbn10_is_true3
+		isbn = "123456789x"
+		assert_equal(true, isbn_input(isbn))
+	end
+	def test_that_returns_true_if_isbn13_is_true3
+		isbn = "9780470059029"
+		assert_equal(true, isbn_input(isbn))
+	end
+	def test_that_returns_true_if_isbn13_is_true4
+		isbn = "978-0-13-149505-0"
+		assert_equal(true, isbn_input(isbn))
+	end
+	def test_that_returns_true_if_isbn13_is_true5
+		isbn = "978 0 471 48648 0"
+		assert_equal(true, isbn_input(isbn))
+	end
+	def test_that_returns_true_if_isbn10_is_true4
+		isbn = "0471958697"
+		assert_equal(true, isbn_input(isbn))
+	end
+	def test_that_returns_true_if_isbn10_is_true5
+		isbn = "0-321-14653-0"
+		assert_equal(true, isbn_input(isbn))
+	end
+	def test_that_returns_true_if_isbn10_is_true6
+		isbn = "877195869x"
+		assert_equal(true, isbn_input(isbn))
+	end
+	def test_that_returns_true_if_isbn10_is_true7
+		isbn = "877195869X"
+		assert_equal(true, isbn_input(isbn))
+	end
+	def test_that_returns_false_if_invalid4
+		isbn = "4780470059029"
+		assert_equal(false, isbn_input(isbn))
+	end
+	def test_that_returns_false_if_invalid5
+		isbn = "0-321@14653-0"
+		assert_equal(false, isbn_input(isbn))
+	end
+	def test_that_returns_false_if_invalid6
+		isbn = "877195x869"
+		assert_equal(false, isbn_input(isbn))
+	end
+	def test_that_returns_false_if_invalid7
+		isbn = " "
+		assert_equal(false, isbn_input(isbn))
+	end
+	def test_that_returns_false_if_invalid8
+		isbn = ""
+		assert_equal(false, isbn_input(isbn))
+	end
+	def test_that_returns_false_if_invalid9
+		isbn = "-"
+		assert_equal(false, isbn_input(isbn))
+	end
+	def test_that_nil_returns_false
+		isbn = nil
+		assert_equal(false, isbn_input(isbn))
 	end
 end
 
