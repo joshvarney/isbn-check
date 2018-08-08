@@ -64,4 +64,7 @@ def isbn10_check(isbn10)
 			isbn10 = false
 		end
 	isbn10
+end
+def isbn13_check(isbn13)
+	isbn13 = isbn13.split('')
 end	
