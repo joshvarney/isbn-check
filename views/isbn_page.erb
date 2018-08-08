@@ -1,6 +1,10 @@
-<h1>Check to see if your ISBN-10 or ISBN-13 is Invalid<h1>
-<form method="post" action="isbn_page">
-<input type="text" name="isbn" placeholder="ISBN Here"><br><br>
-<input class="button" type="submit" value="Check ISBN">
-</form>
-<%=isbn%>
+<html>
+	<body>
+	<h1>Check to see if your ISBN-10 or ISBN-13 is Invalid</h1>
+		<form method="post" action="isbn_page">
+			<input type="text" name="isbn" placeholder="ISBN Here"><br><br>
+			<input class="button" type="submit" value="Check ISBN">
+		</form>
+		<h2><%=isbn%></h2>
+	</body>
+</html>
