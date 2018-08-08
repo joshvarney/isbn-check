@@ -66,9 +66,26 @@ class Isbn_check_test < Minitest::Test
 	# 	isbn10 = "123456789x"
 	# 	assert_equal(1, isbn10_check(isbn10))
 	# end
-	def test_that_the_sum_is_correct
-		isbn10 = "123456789x"
-		assert_equal(285, isbn10_check(isbn10))
+	# def test_that_the_sum_is_correct
+	# 	isbn10 = "123456789x"
+	# 	assert_equal(285, isbn10_check(isbn10))
+	# end
+	# def test_that_taking_the_modulo_of_the_sum_works
+	# 	isbn10 = "123456789x"
+	# 	assert_equal(10, isbn10_check(isbn10))
+	# end
+	def test_that_isbn10_comes_back_false_if_false
+		isbn10 = "6666666660"
+		assert_equal(false, isbn10_check(isbn10))
 	end
+	def test_that_returns_true_using_x_at_the_end1
+		isbn10 = "123456789x"
+		assert_equal(true, isbn10_check(isbn10))
+	end
+	def test_that_returns_true_without_x_at_the_end1
+		isbn10 = "6666666666"
+		assert_equal(true, isbn10_check(isbn10))
+	end
+
 end
 
