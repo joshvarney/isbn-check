@@ -46,7 +46,6 @@ def isbn_input(isbn)
 				isbn = isbn10_check(isbn10)
 			else
 				isbn13 = isbn.join
-				isbn13 = isbn.join
 				isbn = isbn13_check(isbn13)
 			end
 		end
