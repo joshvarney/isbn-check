@@ -58,9 +58,17 @@ class Isbn_check_test < Minitest::Test
 	# 	isbn10 = "123456789x"
 	# 	assert_equal(10, isbn10_check(isbn10).count)
 	# end
-	def test_that_can_take_check_digit
+	# def test_that_can_take_check_digit
+	# 	isbn10 = "123456789x"
+	# 	assert_equal("123456789", isbn10_check(isbn10))
+	# end
+	# def test_that_multiplying_first_digit_works
+	# 	isbn10 = "123456789x"
+	# 	assert_equal(1, isbn10_check(isbn10))
+	# end
+	def test_that_the_sum_is_correct
 		isbn10 = "123456789x"
-		assert_equal("123456789", isbn10_check(isbn10))
+		assert_equal(285, isbn10_check(isbn10))
 	end
 end
 
