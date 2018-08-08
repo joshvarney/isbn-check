@@ -14,12 +14,20 @@ class Isbn_check_test < Minitest::Test
 	# 	isbn = "xkue123_-  .,45X"
 	# 	assert_equal(6, isbn_input(isbn))
 	# end
-	def test_that_can_remove_spaces
-		isbn = " 56 12 45 8 7 9 4 x w o"
-		assert_equal("5612458794xwo", isbn_input(isbn))
-	end 
+	def test_that_isbn_false_if_invalidchar_included
+		isbn = "45 1213 *"
+		assert_equal(false, isbn_input(isbn))
+	end
+	# def test_that_can_remove_spaces
+	# 	isbn = " 56 12 45 8 7 9 4 x w o"
+	# 	assert_equal("5612458794xwo", isbn_input(isbn))
+	# end 
 	def test_that_can_remove_hyphens
 		isbn = "    -----5"
-		assert_equal("5",isbn_input(isbn))
-	end	
+		assert_equal("5", isbn_input(isbn))
+	end
+	# def test_that_if_x_is_included_and_count2_works
+	# 	isbn = "x X X 4564654---enrrt,mnx"
+	# 	assert_equal(4, isbn_input(isbn))
+	# end	
 end
