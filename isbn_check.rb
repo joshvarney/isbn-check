@@ -63,16 +63,12 @@ def isbn10_check(isbn10)
 		else
 			check_digit10 = check_digit10.to_i
 		end
-	num1 = isbn10[0].to_i * 1
-	num2 = isbn10[1].to_i * 2
-	num3 = isbn10[2].to_i * 3
-	num4 = isbn10[3].to_i * 4
-	num5 = isbn10[4].to_i * 5
-	num6 = isbn10[5].to_i * 6
-	num7 = isbn10[6].to_i * 7
-	num8 = isbn10[7].to_i * 8
-	num9 = isbn10[8].to_i * 9
-	sum10 = num1 + num2 + num3 + num4 + num5 + num6 + num7 + num8 + num9 
+	num_check = 1
+	sum10 = 0
+	isbn10.each { |num|
+					sum10 += num.to_i * num_check
+					num_check += 1
+	}
 	mod10 = sum10 % 11
 		if mod10 == check_digit10
 			isbn10 = "Valid ISBN-10"
@@ -83,25 +79,20 @@ def isbn10_check(isbn10)
 end
 def isbn13_check(isbn13)
 	isbn13 = isbn13.split('')
-	check_digit13 = isbn13[-1].to_i
-	numb1 = isbn13[0].to_i * 1
-	numb2 = isbn13[1].to_i * 3
-	numb3 = isbn13[2].to_i * 1
-	numb4 = isbn13[3].to_i * 3
-	numb5 = isbn13[4].to_i * 1
-	numb6 = isbn13[5].to_i * 3
-	numb7 = isbn13[6].to_i * 1
-	numb8 = isbn13[7].to_i * 3
-	numb9 = isbn13[8].to_i * 1
-	numb10 = isbn13[9].to_i * 3
-	numb11 = isbn13[10].to_i * 1
-	numb12 = isbn13[11].to_i * 3
-	sum13 = numb1 + numb2 + numb3 + numb4 + numb5 + numb6 + numb7 + numb8 + numb9 + numb10 + numb11 + numb12
+	check_digit13 = isbn13.pop.to_i
+		if check_digit13 == 0
+			check_digit13 = 10
+		end
+	sum13 = 0
+	isbn13.each_with_index { |numb, ind| 
+							if ind.to_i.even? == true
+								sum13 += numb.to_i * 1
+							else
+								sum13 += numb.to_i * 3 
+							end		
+	}
 	mod13 = sum13 % 10
 	mod13 = 10 - mod13
-		if mod13 == 10
-			mod13 = 0
-		end
 		if check_digit13 == mod13
 			isbn13 = "Valid ISBN-13"
 		else	
