@@ -86,14 +86,21 @@ class Isbn_check_test < Minitest::Test
 	# 	isbn10 = "6666666666"
 	# 	assert_equal(true, isbn10_check(isbn10))
 	# end
-	def test_that_isbn13_returns_an_array
+	# def test_that_isbn13_returns_an_array
+	# 	isbn13 = "1234567890123"
+	# 	assert_equal(Array, isbn13_check(isbn13).class)
+	# end
+	# def test_that_isbn13_returns_an_array_of_13_elements
+	# 	isbn13 = "1234567890123"
+	# 	assert_equal(13, isbn13_check(isbn13).count)
+	# end
+	# def test_that_check_digit_13_is_correct
+	# 	isbn13 = "1234567890123"
+	# 	assert_equal(3, isbn13_check(isbn13))
+	# end
+	def test_that_sum13_works_correctly
 		isbn13 = "1234567890123"
-		assert_equal(Array, isbn13_check(isbn13).class)
+		assert_equal(104 , isbn13_check(isbn13))
 	end
-	def test_that_isbn13_returns_an_array_of_13_elements
-		isbn13 = "1234567890123"
-		assert_equal(13, isbn13_check(isbn13).count)
-	end
-
 end
 

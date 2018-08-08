@@ -67,4 +67,20 @@ def isbn10_check(isbn10)
 end
 def isbn13_check(isbn13)
 	isbn13 = isbn13.split('')
+	check_digit13 = isbn13[-1].to_i
+	numb1 = isbn13[0].to_i * 1
+	numb2 = isbn13[1].to_i * 2
+	numb3 = isbn13[2].to_i * 3
+	numb4 = isbn13[3].to_i * 1
+	numb5 = isbn13[4].to_i * 2
+	numb6 = isbn13[5].to_i * 3
+	numb7 = isbn13[6].to_i * 1
+	numb8 = isbn13[7].to_i * 2
+	numb9 = isbn13[8].to_i * 3
+	numb10 = isbn13[9].to_i * 1
+	numb11 = isbn13[10].to_i * 2
+	numb12 = isbn13[11].to_i * 3
+	sum13 = numb1 + numb2 + numb3 + numb4 + numb5 + numb6 + numb7 + numb8 + numb9 + numb10 + numb11 + numb12
+	
+
 end	
