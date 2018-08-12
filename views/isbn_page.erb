@@ -1,12 +1,17 @@
 <html>
 	<body>
 		<div id="box">	
-		<h1>Check to see if your ISBN-10 or ISBN-13 is Invalid</h1>
+		<h1>Check to see if your ISBN-10 or ISBN-13 is Valid</h1>
 			<form method="post" action="isbn_page">
-				<input type="text" name="isbn" placeholder="ISBN Here"><br><br>
+				<input type="text" name="isbn" placeholder="ISBN Here"><br><br>				
 				<input class="button" type="submit" value="Check ISBN">
 			</form>
+			<form method="post" action="csv_file">
+				<input type="file" name="isbn_csv" accept=".csv">
+				<input class="button" type="submit" value="Check CSV file">
+			</form>	
 			<h2><%=isbn%></h2>
+			<h2><%=isbn_csv%></h2>
 		</div>
 	</body>
 </html>

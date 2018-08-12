@@ -100,3 +100,25 @@ def isbn13_check(isbn13)
 		end
 	isbn13		
 end
+def csv_input(isbn_csv)
+isbn_arr2 = []		
+isbn_arr = []
+filename = isbn_csv
+file = File.new(filename)
+file.each_line("\n") do |row|
+  columns = row.split(",")
+  	if columns[1].split('').last == "\n"
+  		columns[1] = columns[1].split('')
+  		columns[1].pop
+  		columns[1] = columns[1].join
+  	end
+  isbn_arr.push(columns)
+  end
+  isbn_arr.each do |elements|
+  	answers = isbn_input(elements[1])
+  	answers = elements.push(answers) 
+  	isbn_arr2.push(answers)
+  end
+  isbn_arr2[0].pop
+  isbn_arr2
+end
