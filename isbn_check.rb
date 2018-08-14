@@ -9,7 +9,7 @@ def invalid_char()
 end
 def isbn_input(isbn)
 	if isbn == nil
-		isbn = false
+		isbn = "Invalid ISBN"
 	else	
 		count = 0
 		count2 = 0

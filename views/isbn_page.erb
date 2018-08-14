@@ -13,9 +13,19 @@
 				<input class="button" type="submit" value="Check CSV File">
 			</form>
 			<h2><%=isbn%></h2>
-			<%isbn_csv.each do |x|%>
-				<%=x%><br>
-			<%end%>
+			<%if isbn_csv.count == 1%>
+				<%=isbn_csv[0]%>
+			<%else%>
+			<table>
+				<%isbn_csv.each do |x|%>
+					<tr>
+						<td><%=x[0]%></td>
+    					<td><%=x[1]%></td>
+    					<td><%=x[2]%></td>
+    				</tr> 				
+				<%end%>
+			</table>
+			<%end%>	
 		</div>
 		<script>
 		function uploadDealcsv () {}; 
