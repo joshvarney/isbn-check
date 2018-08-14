@@ -109,6 +109,10 @@ def csv_input(isbn_csv)
 		answers = elements.push(answers)
 		isbn_arr2.push(answers)
 	end
-	isbn_arr2[0][-1] = "Validity"
+	if isbn_arr2[0] == nil
+		isbn_arr2[0] = "Please Upload File"
+	else
+		isbn_arr2[0][-1] = "Validity"
+	end
 	isbn_arr2
 end
