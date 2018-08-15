@@ -21,9 +21,11 @@ s3 = Aws::S3::Client.new(profile: 'joshcainvarney', region: 'us-east-2')
 		isbn_csv = params[:isbn_csv]
 		isbn_csv = csv_input(isbn_csv)
 		params[:isbn_csv] = isbn_csv
-		updated_file = CSV.generate do |csv|
-			isbn_csv.each do |stuff|
-				csv << stuff
+		unless isbn_csv[0] == "Please Upload File"
+			updated_file = CSV.generate do |csv|
+				isbn_csv.each do |stuff|
+					csv << stuff
+				end
 			end
 		end
 		s3.put_object(bucket: 'isbn-bucket', body: updated_file, key: "updated_file.csv")
