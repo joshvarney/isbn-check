@@ -1,5 +1,6 @@
+
 <html>
-	<body>
+	<body>	
 		<div id="box">	
 			<h1>Check to see if your ISBN-10 or ISBN-13 is Valid</h1>
 			<form method="post" action="isbn_page">
@@ -7,53 +8,61 @@
 				<input class="button" type="submit" value="Check ISBN">
 			</form>
 			<h1>Upload CSV file to check list of ISBN's</h1>
-			<form method="post" action="csv_file" enctype="multipart/form-data">
+			<form method="post" action="csv_file">
 				<input id="upload" type=file accept=".csv">
 				<textarea hidden id="csv_text_field" name="isbn_csv"></textarea>
 				<input class="button" type="submit" value="Check CSV File">
 			</form>
-			<h2><%=isbn%></h2>
+			<div id="one_isbn">
+				<h2><%=isbn%></h2>
+			</div>
 			<%if isbn_csv.count == 1%>
 				<%=isbn_csv[0]%>
 			<%else%>
-			<table>
-				<%isbn_csv.each do |x|%>
-					<tr>
-						<td><%=x[0]%></td>
-    					<td><%=x[1]%></td>
-    					<td><%=x[2]%></td>
-    				</tr> 				
+				<%CSV.open("updated_file.csv", "a+") do |csv|%>
+					<%isbn_csv.each do |stuff|%>
+		  				<%csv << stuff%>
+					<%end%>
 				<%end%>
-			</table>
-			<%end%>	
-		</div>
+				<a href="updated_file.csv" download>Click Here to Download</a><br><br>
+				<table>
+					<%isbn_csv.each do |x|%>
+						<tr>
+							<td><%=x[0]%></td>
+    						<td><%=x[1]%></td>
+    						<td><%=x[2]%></td>
+    					</tr> 				
+					<%end%>
+				</table>
+			<%end%>
+		</div>		
 		<script>
-		function uploadDealcsv () {}; 
-		  uploadDealcsv.prototype.getCsv = function(e) {		       
-		      let input = document.getElementById('upload');
-		      input.addEventListener('change', function() {
-		        if (this.files && this.files[0]) {
-		            var myFile = this.files[0];
-		            var reader = new FileReader();
-		            reader.addEventListener('load', function (e) {		                
-		                let csvdata = e.target.result; 
-		                parseCsv.getParsecsvdata(csvdata); 
-		            });		            
-		            reader.readAsBinaryString(myFile);
-		        }
-		      });
-		    }
-		    uploadDealcsv.prototype.getParsecsvdata = function(data) {
-		        let parsedata = [];
-		        let newLinebrk = data.split("\n");
-		        for(let i = 0; i < newLinebrk.length; i++) {
-		            parsedata.push(newLinebrk[i].split(","))
-		            document.getElementById("csv_text_field").innerHTML = parsedata;
-		        }
-		        console.table(parsedata);
-		    }
-		  var parseCsv = new uploadDealcsv();
-		  parseCsv.getCsv();
+			function uploadDealcsv () {}; 
+			  uploadDealcsv.prototype.getCsv = function(e) {		       
+			      let input = document.getElementById('upload');
+			      input.addEventListener('change', function() {
+			        if (this.files && this.files[0]) {
+			            var myFile = this.files[0];
+			            var reader = new FileReader();
+			            reader.addEventListener('load', function (e) {		                
+			                let csvdata = e.target.result; 
+			                parseCsv.getParsecsvdata(csvdata); 
+			            });		            
+			            reader.readAsBinaryString(myFile);
+			        }
+			      });
+			    }
+			    uploadDealcsv.prototype.getParsecsvdata = function(data) {
+			        let parsedata = [];
+			        let newLinebrk = data.split("\n");
+			        for(let i = 0; i < newLinebrk.length; i++) {
+			            parsedata.push(newLinebrk[i].split(","))
+			            document.getElementById("csv_text_field").innerHTML = parsedata;
+			        }
+			        console.table(parsedata);
+			    }
+			  var parseCsv = new uploadDealcsv();
+			  parseCsv.getCsv();
   		</script>
 	</body>
 </html>

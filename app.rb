@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'csv'
+require 'json'
 require_relative 'isbn_check.rb'
 
 	get '/' do
@@ -13,7 +14,6 @@ require_relative 'isbn_check.rb'
 	end
 	post '/csv_file' do
 		isbn_csv = params[:isbn_csv]
-		p isbn_csv
 		isbn_csv = csv_input(isbn_csv)
 		params[:isbn_csv] = isbn_csv
 		erb :isbn_page, locals:{isbn: params[:isbn], isbn_csv: params[:isbn_csv]}
