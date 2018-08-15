@@ -4,7 +4,7 @@ require 'aws-sdk-s3'
 require 'json'
 require_relative 'isbn_check.rb'
 
-load 'local_ENV.rb' if File.exist?('local_ENV.rb')
+# load 'local_ENV.rb' if File.exist?('local_ENV.rb')
 
 s3 = Aws::S3::Client.new(profile: 'joshcainvarney', region: 'us-east-2')
 
