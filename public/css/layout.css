@@ -20,11 +20,13 @@ body {
   text-align: center;
   min-height: 100%;
   max-height: fit-content;
+  padding-bottom: 25px;
 }
 table {
+  margin: auto;
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 95%;
 }
 td {
   border: 1px solid white;

@@ -9,7 +9,7 @@ def invalid_char()
 end
 def isbn_input(isbn)
 	if isbn == nil
-		isbn = "Invalid ISBN"
+		isbn = " Invalid ISBN"
 	else	
 		count = 0
 		count2 = 0
@@ -51,7 +51,7 @@ def isbn_input(isbn)
 		end
 	end				
 	if isbn == false
-		isbn = "Invalid ISBN"
+		isbn = " Invalid ISBN"
 	end	
 	isbn
 end
@@ -71,7 +71,7 @@ def isbn10_check(isbn10)
 	}
 	mod10 = sum10 % 11
 		if mod10 == check_digit10
-			isbn10 = "Valid ISBN-10"
+			isbn10 = " Valid ISBN-10"
 		else 
 			isbn10 = false
 		end
@@ -94,7 +94,7 @@ def isbn13_check(isbn13)
 	mod13 = sum13 % 10
 	mod13 = 10 - mod13
 		if check_digit13 == mod13
-			isbn13 = "Valid ISBN-13"
+			isbn13 = " Valid ISBN-13"
 		else	
 			isbn13 = false
 		end
@@ -112,7 +112,7 @@ def csv_input(isbn_csv)
 	if isbn_arr2[0] == nil
 		isbn_arr2[0] = "Please Upload File"
 	else
-		isbn_arr2[0][-1] = "Validity"
+		isbn_arr2[0][-1] = " Validity"
 	end
 	isbn_arr2
 end
