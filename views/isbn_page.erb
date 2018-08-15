@@ -19,8 +19,6 @@
 			<%if isbn_csv.count == 1%>
 				<%=isbn_csv[0]%>
 			<%else%>
-				
-				<a href="https://s3.us-east-2.amazonaws.com/isbn-bucket/updated_file.csv" download>Click Here to Download</a><br><br>
 				<table>
 					<%isbn_csv.each do |x|%>
 						<tr>
